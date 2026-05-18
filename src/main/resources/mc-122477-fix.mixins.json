@@ -1,0 +1,13 @@
+{
+  "required": true,
+  "package": "dev.cardistymo.mc122477fix.mixin",
+  "compatibilityLevel": "${java}",
+  "mixins": [],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "client": [
+    "KeyboardHandlerMixin",
+    "RenderSystemMixin"
+  ]
+}
