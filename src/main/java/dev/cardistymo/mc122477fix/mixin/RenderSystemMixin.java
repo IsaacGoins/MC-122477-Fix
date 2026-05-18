@@ -11,6 +11,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public  abstract class RenderSystemMixin {
     @Inject(at = @At(value = "INVOKE", target = "Lorg/lwjgl/glfw/GLFW;glfwPollEvents()V"), method = "pollEvents")
     private static void injectPollEvents(CallbackInfo ci) {
-        MC122477Fix.performDelayedKeyPresses();
+        MC122477Fix.pollCount += 1;
     }
 }
