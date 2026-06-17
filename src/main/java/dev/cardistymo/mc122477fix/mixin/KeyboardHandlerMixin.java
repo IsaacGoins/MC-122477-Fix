@@ -42,12 +42,21 @@ public abstract class KeyboardHandlerMixin {
 	private void injectSetupKeyboardCallbacks(Args args) {
 		args.set(1, (GLFWKeyCallbackI) (window, keysym, scancode, action, mods) -> {
 			KeyEvent event = new KeyEvent(keysym, scancode, mods);
+			//? if >=26.2 {
 			if (action == GLFW.GLFW_PRESS && this.minecraft.gui.screen() == null && (this.minecraft.options.keyChat.matches(event) || this.minecraft.options.keyCommand.matches(event))) {
 				mc122477fix$chatOpenedFromGamePoll = MC122477Fix.pollCount;
 			}
+			//?} else {
+			/*
+			if (action == GLFW.GLFW_PRESS && this.minecraft.screen == null && (this.minecraft.options.keyChat.matches(event) || this.minecraft.options.keyCommand.matches(event))) {
+				mc122477fix$chatOpenedFromGamePoll = MC122477Fix.pollCount;
+			}
+			*/
+			//?}
 
 			this.minecraft.execute(() -> this.keyPress(window, action, event));
 		});
+		
 
 		//? if <=1.21.11 {
 			/*args.set(2, (GLFWCharModsCallbackI) (window, codepoint, mods) -> {
