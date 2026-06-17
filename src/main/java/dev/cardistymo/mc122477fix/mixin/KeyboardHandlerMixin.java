@@ -42,7 +42,7 @@ public abstract class KeyboardHandlerMixin {
 	private void injectSetupKeyboardCallbacks(Args args) {
 		args.set(1, (GLFWKeyCallbackI) (window, keysym, scancode, action, mods) -> {
 			KeyEvent event = new KeyEvent(keysym, scancode, mods);
-			if (action == GLFW.GLFW_PRESS && this.minecraft.screen == null && (this.minecraft.options.keyChat.matches(event) || this.minecraft.options.keyCommand.matches(event))) {
+			if (action == GLFW.GLFW_PRESS && this.minecraft.gui.screen() == null && (this.minecraft.options.keyChat.matches(event) || this.minecraft.options.keyCommand.matches(event))) {
 				mc122477fix$chatOpenedFromGamePoll = MC122477Fix.pollCount;
 			}
 
