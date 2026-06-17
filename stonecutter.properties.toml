@@ -4,7 +4,7 @@ mod.name = "MC-122477 Fix"
 mod.group = "dev.cardistymo.mc122477fix"
 mod.version = "1.0.0"
 
-deps.fabric_loader = "0.19.3"
+deps.fabric_loader = "0.19.2"
 loomx.loom_version = "1.16-SNAPSHOT"
 
 ["1.21.11"]
